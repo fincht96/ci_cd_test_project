@@ -1,0 +1,16 @@
+{
+  "name": "ci_cd_test_project",
+  "version": "1.0.0",
+  "description": "A simple http-server that serves static web page",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server -p 8080"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "^0.12.3"
+  }
+}
