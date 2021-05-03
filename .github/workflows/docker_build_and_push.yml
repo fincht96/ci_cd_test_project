@@ -1,0 +1,27 @@
+name: Github build docker image and push
+
+on: push
+
+env:
+  DOCKER_USER: ${{ secrets.DOCKER_USER }}
+  DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: docker login
+        run: |
+          docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}
+
+      - name: docker build nodejs
+        run: |
+          docker build -t fincht96/ci_cd_test_project:latest .
+
+      - name: docker push
+        run: |
+          docker push fincht96/ci_cd_test_project:latest
